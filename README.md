@@ -1,4 +1,5 @@
 # Simulating-Propagation-Delays-in-Digital-Logic-Gates
+```mermaid
 classDiagram
     %% Signal Management
     class SignalSource {
