@@ -97,3 +97,24 @@ classDiagram
 - 支援訊號與閘的綁定，自由組合電路結構
 - 支援 propagation delay（訊號傳遞延遲）
 - 可查詢任意時刻 Gate 的輸出（歷史追蹤）
+## 基本使用方式
+啟動程式後，於命令列依下列格式輸入指令：
+ˋˋˋbash
+Add signal <名稱>                # 新增訊號
+Add AND <閘名稱>                 # 新增 AND 閘（其他閘類型同理）
+Set <訊號名稱> <True/False> <t>  # 設定某訊號在 t 時刻的值
+Bind <來源> <目標閘> <pin>       # 將來源訊號/閘綁定至閘的第 pin 腳
+Query <閘名稱> <t>               # 查詢閘在 t 時間點的輸出
+EXIT                             # 離開程式
+ˋˋˋ
+## 範例流程
+ˋˋˋbash
+Add signal a
+Add signal b
+Add AND g1
+Set a True 0
+Set b False 0
+Bind a g1 0
+Bind b g1 1
+Query g1 10
+ˋˋˋ
