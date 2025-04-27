@@ -120,3 +120,17 @@ Bind a g1 0
 Bind b g1 1
 Query g1 10
 ```
+## SignalSource（介面／抽象基底類別）
+- SignalSource 是所有訊號來源的抽象介面（以 struct 搭配純虛擬函式實作），定義了 getValueAt(t) 方法，並在Siganl 和 Gate 上 override。
+- 這樣設計能讓所有訊號來源（包括原始訊號、各種邏輯閘）都能以一致的方式被查詢，
+- 體現了 C++ 的介面設計與多型（polymorphism），方便擴充與重用。
+## Signal（訊號類別，繼承自 SignalSource）
+- Signal 類別代表可設定時間歷史的輸入訊號，繼承自 SignalSource。
+- 具備「封裝」特性，將訊號名稱與時間歷史儲存在私有成員中，並透過成員函式進行資料存取。
+## Gate（抽象邏輯閘基底類，繼承自 SignalSource）
+- Gate 是所有邏輯閘的抽象基底類別，繼承自 SignalSource，實作了延遲處理與輸入管理，
+- 宣告一個純虛擬函式 evaluate(a, b) 讓子類別覆寫，
+- 使各種邏輯閘能以統一介面被操作，且便於擴充不同邏輯功能。
+## 各種 Logic Gate（繼承 Gate）
+- 這些類別皆繼承自 Gate，並各自實作（覆寫）evaluate 方法以對應不同邏輯運算。
+- AndGate 的 evaluate 回傳兩輸入皆為 True 時才為 True，
