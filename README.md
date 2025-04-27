@@ -88,3 +88,12 @@ classDiagram
     note for XorGate "Logic Gates System"
     note for XnorGate "Logic Gates System"
     note for CommandInterpreter "Command Interpreter"
+```mermaid
+
+## 特色功能
+
+- 支援多種邏輯閘（AND、OR、NOT、NAND、NOR、XOR、XNOR）
+- 可自訂訊號並設定任意時刻的值
+- 支援訊號與閘的綁定，自由組合電路結構
+- 支援 propagation delay（訊號傳遞延遲）
+- 可查詢任意時刻 Gate 的輸出（歷史追蹤）
