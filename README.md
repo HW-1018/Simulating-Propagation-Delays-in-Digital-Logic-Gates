@@ -88,7 +88,6 @@ classDiagram
     note for XorGate "Logic Gates System"
     note for XnorGate "Logic Gates System"
     note for CommandInterpreter "Command Interpreter"
-```mermaid
 
 ## 特色功能
 
